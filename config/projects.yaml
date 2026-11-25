@@ -1,0 +1,92 @@
+# Source: AmazonScience/migration-bench-java-selected (base_commit looked up 2026-11-22).
+
+projects:
+  - name: a-vaadin-helper
+    repo: https://github.com/Artur-/a-vaadin-helper.git
+    base_commit: "84c6e9d4d040fc04d042b7d92414844825553976"
+    group: small
+
+  - name: oauth2-with-jira
+    repo: https://github.com/BjoernKW/oauth2-with-jira.git
+    base_commit: "d24180b10d3bd803524dc858db1e01f41bfe8dfe"
+    group: small
+
+  - name: xlsx-matchers
+    repo: https://github.com/dgroup/xlsx-matchers.git
+    base_commit: "793f2cd74a08339c372cdea0fad07fb0d1c04c6f"
+    group: small
+
+  - name: spring-graphql-sample
+    repo: https://github.com/fbeaufume/spring-graphql-sample.git
+    base_commit: "d61fe282d8cd1372e5f6a152f77fdce8cb535dd1"
+    group: small
+
+  - name: stiletto
+    repo: https://github.com/Pyknic/stiletto.git
+    base_commit: "cebace538e9491bbb591fb740fad076713219b61"
+    group: small
+
+  - name: tinify-java
+    repo: https://github.com/tinify/tinify-java.git
+    base_commit: "d9cc3350224b02a6528e8885809da253e843ba0e"
+    group: small
+
+  - name: airlift-airline
+    repo: https://github.com/airlift/airline.git
+    base_commit: "1f640f879e08796bfa71de68cc46e9e02be6c139"
+    group: medium
+
+  - name: SansOrm
+    repo: https://github.com/brettwooldridge/SansOrm.git
+    base_commit: "ab22721db79c5f20c0e8483f09eda2844d596557"
+    group: medium
+
+  - name: dddsample-core
+    repo: https://github.com/citerus/dddsample-core.git
+    base_commit: "04cfae9e67683fc56e41606673829d271db20638"
+    group: medium
+
+  - name: tankerkoenig-api-client
+    repo: https://github.com/codengine/tankerkoenig-api-client.git
+    base_commit: "af10e9429c340cb0db614637b73000f54cede58c"
+    group: medium
+
+  - name: fluentxml4j
+    repo: https://github.com/fluentxml4j/fluentxml4j.git
+    base_commit: "512f085acdfb0bf7b8a867735d15818fa9d5d7bd"
+    group: medium
+
+  - name: java-monitoring-client-library
+    repo: https://github.com/google/java-monitoring-client-library.git
+    base_commit: "2a437430a999cd8c6bc01adeedff35dbffd3bf8c"
+    group: medium
+
+  - name: maven-enforcer
+    repo: https://github.com/apache/maven-enforcer.git
+    base_commit: "80ee78e5f7473dafc8ca8e68d8f2af7895290303"
+    group: large
+
+  - name: arquillian-core
+    repo: https://github.com/arquillian/arquillian-core.git
+    base_commit: "2bc6e1c3af13a210c01a9e7ea5bbd159c5b58d1c"
+    group: large
+
+  - name: vertx-maven-plugin
+    repo: https://github.com/fabric8io/vertx-maven-plugin.git
+    base_commit: "6dd9a19ed7da4f70a5043d37585e25a978e3bbbc"
+    group: large
+
+  - name: coda-calibration-tool
+    repo: https://github.com/LLNL/coda-calibration-tool.git
+    base_commit: "7e3fe1f78b7bbde07ea2251a00a93a61ba27e949"
+    group: large
+
+  - name: springdoc-openapi
+    repo: https://github.com/springdoc/springdoc-openapi.git
+    base_commit: "3483389593a9cc81641fdb87ba2c451cafd77442"
+    group: large
+
+  - name: apollo
+    repo: https://github.com/spotify/apollo.git
+    base_commit: "a03105ee1f98f8c5878f4e3c4d03c8732c6384bd"
+    group: large

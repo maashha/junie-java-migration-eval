@@ -1,0 +1,7 @@
+Migrate this project from Java 8 to Java 17.
+Preserve existing behavior.
+Update build configuration, dependencies, and source code where necessary.
+Run the project's build and tests during the migration and fix failures when possible.
+Do not make unrelated refactorings or feature changes.
+Do not delete, disable, or skip existing tests to make the build pass.
+Finish only when the project targets Java 17 and the existing test suite passes, or when you determine that the migration cannot be completed.

@@ -1,0 +1,24 @@
+# Experiment data (clones, run copies, raw results) is large and machine-specific.
+# Results are kept on disk; archive them separately (or remove `results/` from
+# this list if you want to version a small pilot).
+work/*
+!work/.gitkeep
+results/*
+!results/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Local config overrides / secrets
+config/*.local.yaml
+.env
+
+# IDE
+.idea/
+.vscode/
+.DS_Store

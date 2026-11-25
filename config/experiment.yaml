@@ -1,0 +1,42 @@
+experiment:
+  name: junie-vs-openrewrite-pilot
+  repetitions: 1
+
+paths:
+  work_dir: work
+  results_dir: results
+  prompt_file: prompts/java8-to-java17.txt
+
+migration:
+  source_java: 8
+  target_java: 17
+
+limits:
+  timeout_minutes: 30
+  validation_timeout_minutes: 30
+
+jdk:
+  baseline_home: ${JAVA8_HOME}
+  target_home: ${JAVA17_HOME}
+
+maven:
+  executable: "/Users/Mariia.Fadeeva/tools/apache-maven-3.9.16/bin/mvn"
+  validation_args: ["-B", "-ntp", "clean", "test"]
+  local_repository: null
+  help_plugin: "org.apache.maven.plugins:maven-help-plugin:3.5.1"
+
+junie:
+  executable: junie
+  model: "gpt-6.1-sol"
+  model_display_name: "GPT-6.1 Sol"
+  reasoning_effort: "medium"
+  extra_args: []
+  home: ~/.junie
+
+openrewrite:
+  plugin: "org.openrewrite.maven:rewrite-maven-plugin:6.46.1"
+  recipe_artifact: "org.openrewrite.recipe:rewrite-migrate-java:3.42.1"
+  recipe: "org.openrewrite.java.migrate.UpgradeToJava17"
+
+evaluation:
+  diff_exclude: ["**/target/**"]
