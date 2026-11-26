@@ -237,31 +237,10 @@ work/            clones and working copies (git-ignored)
 results/         run results (git-ignored)
 ```
 
-## Manual effort, time to success, cost (secondary phase)
+## Time to success and cost
 
-Runs without automated full success can be finished by hand to measure the human
-effort an automated migration leaves behind. The automated result is never changed;
-the manual work happens on a new copy (`work/<p>/manual/...`) and is stored in
-`results/<p>/<method>/run-NN/manual-fix-MM/`.
-
-```bash
-python scripts/manual_fix.py todo                                   # runs that need fixing
-python scripts/manual_fix.py start  --run results/<p>/<method>/run-01   # starts the clock
-python scripts/manual_fix.py note   --session <session> "what was fixed" # once per fix
-python scripts/manual_fix.py finish --session <session> --active-minutes 25 [--gave-up]
-python scripts/summarize.py [--hourly-rate 50]
-```
-
-Protocol: one fix = one logically distinct change addressing one failure cause; same
-evaluator (JDK 17, `mvn clean test`); no deleting/disabling/skipping tests; timebox
-60 min, then `--gave-up`. Metrics: `manual_fixes`, `manual_active_minutes`, manual diff
-size, `success_after_manual`, `time_to_success` (automated runtime + manual active
-time), `llm_cost_usd` (Junie, from llmUsage; OpenRewrite = 0), optionally
-`total_cost_usd_incl_manual`. Automated successes count as 0 fixes / 0 minutes.
-A manual fix must not change files under `src/test/` either (checked against
-base_commit), otherwise it does not count as success.
-Threats to validity: the author is the only fixer (no blinding); fixing the same
-project a second time is faster (learning effect), so alternate the order of methods.
+`time_to_success_seconds` is the migration runtime of a run with full success (empty
+otherwise). `llm_cost_usd` is the Junie cost from `llmUsage`; OpenRewrite costs 0.
 
 ## Unmodified tests are part of success
 

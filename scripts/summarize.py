@@ -24,13 +24,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--results-dir", type=Path)
     ap.add_argument("--config", type=Path, default=ROOT / "config" / "experiment.yaml")
-    ap.add_argument("--hourly-rate", type=float,
-                    help="USD per hour of manual work; adds total_cost_usd_incl_manual")
     args = ap.parse_args()
     results_dir = args.results_dir or load_experiment(args.config, ROOT).results_dir
     if not results_dir.is_dir():
         sys.exit(f"results directory not found: {results_dir}")
-    out = summarize(results_dir.resolve(), hourly_rate=args.hourly_rate)
+    out = summarize(results_dir.resolve())
     print((out / "summary.md").read_text(encoding="utf-8"))
     print(f"-> {out}")
     return 0

@@ -245,17 +245,16 @@ def test_checkout_isolation_and_diff(tmp_path):
         git.write_diff(runner, copy, sha, tmp_path / "git.diff", ())
 
 
-def test_attach_manual_auto_success_and_unfixed(tmp_path):
-    from migration_eval.summary import attach_manual
-    ok = {"method": "junie", "_path": str(tmp_path), "test_files_modified": 0, "build_success": True, "tests_failed": 0,
-          "tests_errors": 0, "java17_verified": True, "migration_duration_seconds": 100.0,
-          "llm_cost_usd": 0.2}
-    attach_manual(ok)
-    assert ok["manual_fixes"] == 0 and ok["time_to_success_seconds"] == 100.0
+def test_attach_cost_and_time(tmp_path):
+    from migration_eval.summary import attach_cost_and_time
+    ok = {"method": "junie", "_path": str(tmp_path), "test_files_modified": 0, "build_success": True,
+          "tests_failed": 0, "tests_errors": 0, "java17_verified": True,
+          "migration_duration_seconds": 100.0, "llm_cost_usd": 0.2}
+    attach_cost_and_time(ok)
+    assert ok["time_to_success_seconds"] == 100.0 and ok["llm_cost_usd"] == 0.2
     bad = {"method": "openrewrite", "_path": str(tmp_path), "build_success": False,
            "migration_duration_seconds": 10.0}
-    attach_manual(bad)
-    assert bad["manual_fix_needed"] and bad["manual_fixes"] is None
+    attach_cost_and_time(bad)
     assert bad["time_to_success_seconds"] is None and bad["llm_cost_usd"] == 0.0
 
 
